@@ -22,3 +22,16 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Technologies 
+
+* Backend
+    * Ruby on Rails - MVC framework
+    * PostgreSQL - database
+
+* Frontend
+    * React js/React-axios - Javascript library for reusable UI components and frontend state management 
+    * HTML/CSS - style and formattting
+    * Styled Components - additional responsive formatting and style
+
+
