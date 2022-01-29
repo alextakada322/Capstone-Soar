@@ -16,17 +16,17 @@
 ## Features 
 
 - Models - Our app will have an airlines model and each airline in our app will have many reviews.
-* For airlines 
+* airlines 
     * name for each airline
     * unique url-safe slug
     * image_url
-* For reviews
+* reviews
     * title
     * description
     * score - star rating system that ranges from 1 to 5 stars; 1 being the worsts and 5 being the best
     * airline_id
 
-- Serializers - to build our JSON API
+# Serializers - to build our JSON API
 * using gem 'fast_jsonapi' created by Netflix engineering team to help create the exact structure for the data we want to expose in our api then use that when we render json from our controllers.
 
 - Three Controllers 
