@@ -53,7 +53,7 @@ const Airlines = () => {
     <Home>
         <Header>
             <h1>WELCOME TO SOAR</h1>
-            <Subheader>Please leave a review!</Subheader>
+            <Subheader>Read, write, and rate your airline</Subheader>
         </Header>
         <Grid>
             {grid}
