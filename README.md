@@ -1,27 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Soar App Overview
+    Soar is a yelp inspired application for airline goers. This fullstack web application implents CRUD functionality allowing users to write their reviews on each specific airline. 
 
 # Technologies 
 
@@ -34,4 +14,17 @@ Things you may want to cover:
     * HTML/CSS - style and formattting
     * Styled Components - additional responsive formatting and style
 
+## Features 
 
+    * Models - data model for this app is simple. Our app will have an airlines model and each airline in our app will have many reviews.
+
+
+
+
+
+## Future Directions
+    
+    * Improve styling 
+    * Integrate User Authentication
+    * Integrate functionality like yelp to add friends
+    
