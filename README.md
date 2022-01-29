@@ -15,7 +15,8 @@
 
 ## Features 
 
-## Models - Our app will have an airlines model and each airline in our app will have many reviews.
+### Models 
+Our app will have an airlines model and each airline in our app will have many reviews.
 * airlines 
     * name for each airline
     * unique url-safe slug
