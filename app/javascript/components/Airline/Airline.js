@@ -2,6 +2,7 @@ import React, {useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import Header from './Header'
 import ReviewForm from './ReviewForm'
+import Review from './Review'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -55,31 +56,42 @@ const Airline = (props) => {
             console.log('review:', review)
         }
         //Create new review in our database
+        //take review  object in the state combine with airline_id w airline object state combine together then submit to api with axios
         const handleSubmit = (e) => {
             e.preventDefault()
-            
-            //take review  object in the state combine with airline_id w airline object state combine together then submit to api withaxios
-            
+                       
             const csrfToken = document.querySelector('[name=csrf-token]').content
             axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 
+            //Get our airline id
             const airline_id = airline.data.id
             axios.post('/api/v1/reviews', {review, airline_id})
             .then(resp => {
             //take review we created then add to array of reviews under included key of airline so we dont have to make an additional request to airline endpoint to get updated state
-              const included = [...airline.included, resp.data]
+              const included = [...airline.included, resp.data.data ]
               setAirline({...airline, included})
               setReview({title: '', description: '', score: 0})
             })
-            .catch(resp => {})
+            .catch(resp => console.log(resp))
         }
-
+        
+        //set score
         const setRating = (score, e) => {
             e.preventDefault()
-
             setReview({...review, score})
         }
 
+        let reviews
+        if (loaded && airline.included) {        
+            reviews = airline.included.map( (item, index) => {
+              return (
+                <Review
+                key={index}
+                attributes={item.attributes}
+                />
+            )
+        })
+        }
 
     return (
         <Wrapper> 
@@ -93,7 +105,7 @@ const Airline = (props) => {
                     reviews={airline.included}
                     /> 
                 
-                    <div className="reviews"></div>
+                    {reviews}
                     </Main>
                 </Column>
                 <Column>
