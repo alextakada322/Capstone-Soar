@@ -15,7 +15,7 @@
 
 ## Features 
 
-- Models - Our app will have an airlines model and each airline in our app will have many reviews.
+## Models - Our app will have an airlines model and each airline in our app will have many reviews.
 * airlines 
     * name for each airline
     * unique url-safe slug
@@ -26,10 +26,10 @@
     * score - star rating system that ranges from 1 to 5 stars; 1 being the worsts and 5 being the best
     * airline_id
 
-# Serializers - to build our JSON API
+### Serializers - to build our JSON API
 * using gem 'fast_jsonapi' created by Netflix engineering team to help create the exact structure for the data we want to expose in our api then use that when we render json from our controllers.
 
-- Three Controllers 
+## Three Controllers 
 * airlines/reviews controller - 'api/v1' to manage routing from react side and rails side using react-router
 * pages controller - single index action that acts as our root path 
 
