@@ -1,6 +1,6 @@
 # Soar App 
     
-- Soar is a yelp inspired application for people to write airline reviews. This fullstack web application designed with backend routes implents CRUD functionality.
+- Soar is a yelp inspired application for people to write airline reviews. This fullstack web application designed with backend routes implements CRUD functionality.
 
 # Technologies 
 
