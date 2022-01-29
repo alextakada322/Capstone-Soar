@@ -45,7 +45,35 @@ const Airline = (props) => {
         .catch( resp => console.log(resp))
         }, [])
 
-        
+
+        //Modify text in review form
+        const handleChange = (e) => {
+            e.preventDefault()
+
+            setReview(Object.assign({}, review, {[e.target.name]: e.target.value}))
+
+            console.log('review:', review)
+        }
+        //Create new review in our database
+        const handleSubmit = (e) => {
+            e.preventDefault()
+            
+            //take review  object in the state combine with airline_id w airline object state combine together then submit to api withaxios
+            
+            const csrfToken = document.querySelector('[name=csrf-token]').content
+            axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
+            const airline_id = airline.data.id
+            axios.post('/api/v1/reviews', {review, airline_id})
+            .then(resp => {
+            //take review we created then add to array of reviews under included key of airline so we dont have to make an additional request to airline endpoint to get updated state
+              const included = [...airline.included, resp.data]
+              setAirline({...airline, included})
+              setReview({title: '', description: '', score: 0})
+            })
+            .catch(resp => {})
+        }
+
 
     return (
         <Wrapper> 
@@ -63,7 +91,12 @@ const Airline = (props) => {
                     </Main>
                 </Column>
                 <Column>
-                    <ReviewForm/>
+                    <ReviewForm
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit}
+                        attributes={airline.data.attributes}
+                        review={review}
+                    />
                 </Column>
             </Fragment>
             }

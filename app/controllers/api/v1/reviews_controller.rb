@@ -5,7 +5,7 @@ module Api
 
       # POST /api/v1/reviews
       def create
-        review = Review.new(review_params)
+        review = airline.reviews.new(review_params)
 
         if review.save
           render json: ReviewSerializer.new(review).serialized_json
@@ -26,6 +26,10 @@ module Api
       end
 
       private
+
+      def airline
+        @airline ||= Airline.find(params[:airline_id])
+      end 
 
       # Strong params
       def review_params
