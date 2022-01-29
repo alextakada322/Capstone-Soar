@@ -74,8 +74,12 @@ const Airline = (props) => {
             .catch(resp => {})
         }
 
+        const setRating = (score, e) => {
+            e.preventDefault()
 
-        
+            setReview({...review, score})
+        }
+
 
     return (
         <Wrapper> 
@@ -96,6 +100,7 @@ const Airline = (props) => {
                     <ReviewForm
                         handleChange={handleChange}
                         handleSubmit={handleSubmit}
+                        setRating={setRating}
                         attributes={airline.data.attributes}
                         review={review}
                     />
